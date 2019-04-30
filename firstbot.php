@@ -22,6 +22,7 @@ function reply_msg($txtin,$replyToken)//สร้างข้อความแ�
 }
 
 // รับข้อมูล
+require('connect_db.php');
 $content = file_get_contents('php://input');//รับข้อมูลจากไลน์
 $events = json_decode($content, true);//แปลง json เป็น php
 file_put_contents('log.txt',$events,FILE_APPEND); //สร้างไฟล์ log
@@ -33,12 +34,15 @@ if (!is_null($events['events'])) //check ค่าในตัวแปร $even
             $replyToken = $event['replyToken']; //เก็บ reply token เอาไว้ตอบกลับ
             $source_type = $event['source']['type'];//เก็บที่มาของ event(user หรือ group)
             $txtin = $event['message']['text'];//เอาข้อความจากไลน์ใส่ตัวแปร $txtin
-            if($txtin=='โหลๆๆ')
+            $sql_text="SELECT * FROM commu WHERE keyword LIKE '%$txtin%'";
+            $query = mysqli_query($conn,$sql_text);
+            while($obj = mysqli_fetch_assoc($query))
             {
-                $txtback='5โหล';
+                $txtback = $txtback."\n" $obj["keyword"];
             }
+        
             reply_msg($txtback,$replyToken);      
         }
     }
 }
-echo "BOT OK";
+echo "BOT OK...........";
