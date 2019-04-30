@@ -38,7 +38,7 @@ if (!is_null($events['events'])) //check ค่าในตัวแปร $even
             $query = mysqli_query($conn,$sql_text);
             while($obj = mysqli_fetch_assoc($query))
             {
-                $txtback = $txtback."\n" $obj["keyword"];
+                $txtback = $txtback."\n". $obj["keyword"];
             }
         
             reply_msg($txtback,$replyToken);      
