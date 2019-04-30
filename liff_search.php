@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -11,7 +10,6 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="liff_search.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Sarabun|Roboto" rel="stylesheet">
-		
 	</head>
 	<body>
 		<header style="margin-bottom: 70px;">
@@ -51,17 +49,8 @@
 					<p id="search_result">ผลการค้นหา 3 รายการ</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="card mt-2">
-							<div class="card-body">อุปกรณ์ 1</div>
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<div class="card mt-2">
-							<div class="card-body">อุปกรณ์ 1</div>
-						</div>
-					</div>
+				<div class="row" id="card-area">
+					<!--Card Area-->
 				</div>
 			</div>
 		</main>
